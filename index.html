@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<meta name="theme-color" content="#0c1024">
+<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/fun.css?v=4">
 </head>
 <body>
 
@@ -31,12 +33,13 @@
 <header class="nav" id="nav">
   <a class="brand" href="#top"><img src="assets/stickers/ball-helmet.png" alt=""><span>Aleena's Day</span></a>
   <nav class="nav-links" id="navLinks">
-    <a href="#card">Driver card</a>
-    <a href="#jude">Jude</a>
-    <a href="#oscar">Oscar</a>
+    <a href="#card">Card</a>
+    <a href="#penalty">Penalty</a>
     <a href="#race">Race</a>
+    <a href="#memes">Memes</a>
     <a href="#stickers">Stickers</a>
     <a href="#gallery">Gallery</a>
+    <a href="#coupons">Coupons</a>
     <a href="#letter">Letter</a>
   </nav>
   <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -151,6 +154,32 @@
       <div class="bar"><span>Chance of mean mode before food arrives</span><div><i style="--v:82%"></i></div><b>82%</b></div>
       <div class="bar"><span>Chance she forgives you anyway</span><div><i style="--v:99%"></i></div><b>99%</b></div>
     </div>
+
+    <div class="scanner reveal" id="scanner">
+      <img class="scanner-sticker" src="assets/stickers/angel.png" alt="Aleena with a halo and one tiny devil horn">
+      <div class="scanner-body">
+        <p class="kicker">Mean mode detector</p>
+        <h3>Scan her mood before you speak</h3>
+        <p class="scanner-sub">Aleena, press and hold the pad. Science will handle the rest.</p>
+        <div class="scan-row">
+          <button class="scan-pad" id="scanPad" type="button" aria-label="Hold to scan"><span>☝️</span></button>
+          <div class="scan-result" id="scanResult" aria-live="polite"><b>READY</b><span>Awaiting thumb.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSLATOR ============ -->
+<section class="section section-translate" id="translate">
+  <div class="container">
+    <div class="section-head">
+      <img class="head-sticker" src="assets/stickers/sideeye.png" alt="">
+      <p class="kicker">Aleena to English</p>
+      <h2>The official translator</h2>
+      <p class="lead">Years of field research went into this. Tap a card to see what she actually means.</p>
+    </div>
+    <div class="flip-grid" id="flipGrid"></div>
   </div>
 </section>
 
@@ -177,6 +206,32 @@
       <div class="chips">
         <span>Hala Madrid</span><span>Y nada más</span><span>Comeback kings</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PENALTY ============ -->
+<section class="section section-pen" id="penalty">
+  <div class="container">
+    <div class="section-head light">
+      <p class="kicker">Bernabéu, 90+5</p>
+      <h2>Penalty shootout</h2>
+      <p class="lead">Five penalties. One extremely serious cat in goal. Tap a target to shoot.</p>
+    </div>
+    <div class="pen-wrap">
+      <div class="pen-score"><div class="pen-dots" id="penDots"></div><b id="penScore">0 / 5</b></div>
+      <div class="pen-field" id="penField">
+        <div class="pen-goal" id="penGoal">
+          <div class="pen-net"></div>
+          <img class="pen-keeper" id="penKeeper" src="assets/stickers/keeper.png" alt="Cat goalkeeper">
+          <div class="pen-zones" id="penZones"></div>
+          <div class="pen-flash" id="penFlash"></div>
+        </div>
+        <div class="pen-spot"></div>
+        <div class="pen-ball" id="penBall">⚽</div>
+      </div>
+      <p class="pen-msg" id="penMsg" aria-live="polite">Tap a target. The cat is ready. The cat is always ready.</p>
+      <button class="btn btn-primary" id="penReset" type="button" hidden>Take five more</button>
     </div>
   </div>
 </section>
@@ -214,7 +269,7 @@
     <div class="section-head light">
       <p class="kicker">Aleena Grand Prix</p>
       <h2>Your race, your car, your P1</h2>
-      <p class="lead">Three laps. Papaya car. Nineteen cars ahead of you on the grid. Overtake everyone, avoid the chaos, and hold the DRS for the straights. Mean mode is allowed here.</p>
+      <p class="lead">Three laps. Papaya car. Nineteen cars ahead of you. Overtake everyone, eat the cake, dodge the banana phone. Mean mode is not just allowed here, it is recommended.</p>
     </div>
 
     <div class="race-wrap">
@@ -225,6 +280,7 @@
           <h3 id="overlayTitle">Aleena Grand Prix</h3>
           <p id="overlayText">Beat the grid in 3 laps. Every overtake is a place gained, every crash costs three. Finish P1 and the podium is yours.</p>
           <button class="btn btn-primary" id="raceStart" type="button">Lights out</button>
+          <p class="race-tip">Drag on the track or use the buttons. Grab cake for DRS. Avoid the banana phone.</p>
           <div class="controls-hint">
             <span><kbd>◀</kbd><kbd>▶</kbd> or <kbd>A</kbd><kbd>D</kbd> steer</span>
             <span><kbd>▲</kbd> push · <kbd>▼</kbd> lift</span>
@@ -252,13 +308,33 @@
   </div>
 </section>
 
+<!-- ============ MEMES ============ -->
+<section class="section section-memes" id="memes">
+  <div class="container">
+    <div class="section-head">
+      <img class="head-sticker" src="assets/stickers/grumpy.png" alt="">
+      <p class="kicker">Certified accurate</p>
+      <h2>The Aleena meme archive</h2>
+      <p class="lead">Fourteen memes. All of them true. Swipe through, tap to react, then send the worst ones to the group chat.</p>
+    </div>
+  </div>
+  <div class="meme-rail" id="memeRail"></div>
+  <div class="container">
+    <div class="meme-bar">
+      <button class="btn btn-dark" id="memeShuffle" type="button">Random</button>
+      <span id="memeCount">1 / 14</span>
+      <button class="btn btn-primary" id="memeShare" type="button">Send this one</button>
+    </div>
+  </div>
+</section>
+
 <!-- ============ STICKERS ============ -->
 <section class="section" id="stickers">
   <div class="container">
     <div class="section-head">
       <p class="kicker">Made for you</p>
       <h2>The Aleena sticker pack</h2>
-      <p class="lead">Twelve stickers, both teams, both jerseys, one birthday girl. Tap any of them to save it for WhatsApp.</p>
+      <p class="lead">Sixteen stickers, both teams, both jerseys, one birthday girl and one cat. Tap any of them to save it for WhatsApp.</p>
     </div>
     <div class="sticker-grid" id="stickerGrid">
       <a class="sticker" href="assets/stickers/aleena-trophy.png" download="aleena-trophy.png"><img src="assets/stickers/aleena-trophy.png" alt="Aleena in papaya lifting a trophy"><span>Champion</span></a>
@@ -273,7 +349,10 @@
       <a class="sticker" href="assets/stickers/cake.png" download="pitch-cake.png"><img src="assets/stickers/cake.png" alt="Football pitch birthday cake"><span>The cake</span></a>
       <a class="sticker" href="assets/stickers/trophy.png" download="happy-birthday-trophy.png"><img src="assets/stickers/trophy.png" alt="Happy birthday trophy"><span>Trophy</span></a>
       <a class="sticker" href="assets/stickers/ball-helmet.png" download="ball-helmet.png"><img src="assets/stickers/ball-helmet.png" alt="Football and helmet in party hats"><span>Besties</span></a>
-    </div>
+      <a class="sticker" href="assets/stickers/hangry.png" download="aleena-hangry.png"><img loading="lazy" src="assets/stickers/hangry.png" alt="Hangry Aleena with fork and knife"><span>Feed me</span></a>
+      <a class="sticker" href="assets/stickers/angel.png" download="aleena-angel.png"><img loading="lazy" src="assets/stickers/angel.png" alt="Aleena with a halo and a devil horn"><span>Good girl*</span></a>
+      <a class="sticker" href="assets/stickers/sideeye.png" download="aleena-sideeye.png"><img loading="lazy" src="assets/stickers/sideeye.png" alt="Aleena giving side-eye while sipping a drink"><span>Side-eye</span></a>
+      <a class="sticker" href="assets/stickers/keeper.png" download="keeper-cat.png"><img loading="lazy" src="assets/stickers/keeper.png" alt="Cat goalkeeper"><span>The keeper</span></a>    </div>
   </div>
 </section>
 
@@ -286,34 +365,34 @@
       <p class="lead">Mountains, mirrors, flowers, Hot Wheels aisles and far too many jerseys. Tap to open.</p>
     </div>
     <div class="masonry" id="masonry">
-      <figure><img loading="lazy" src="assets/photos/p16.jpg" alt="Aleena in the Madrid away jersey on a rooftop"><figcaption>Emirates, fly better</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p24.jpg" alt="Aleena picking Hot Wheels cars"><figcaption>Scouting the next McLaren</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p10.jpg" alt="Aleena by pink flowers"><figcaption>Soft launch</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p08.jpg" alt="Aleena on a banana phone"><figcaption>Team radio</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p06.jpg" alt="Aleena with a drink and ice cream"><figcaption>Refuelling</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p23.jpg" alt="Mirror selfie in the Madrid jersey"><figcaption>Matchday fit check</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p07.jpg" alt="Aleena with balloons and flowers"><figcaption>Balloons season</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p12.jpg" alt="Aleena in the mountains hiding her face"><figcaption>Camera shy, allegedly</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p13.jpg" alt="Aleena in black traditional wear"><figcaption>Main character</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p14.jpg" alt="Aleena at a dinner table with flowers"><figcaption>Dinner, flowers, drama</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p03.jpg" alt="Aleena with a friend at a restaurant"><figcaption>Partners in crime</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p04.jpg" alt="Group selfie in the woods"><figcaption>The full squad</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p18.jpg" alt="Aleena sitting in a pine forest"><figcaption>Pine forest, headphones on</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p22.jpg" alt="Aleena with friends in a toy shop"><figcaption>Toy shop takeover</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p28.jpg" alt="Mirror selfie in white"><figcaption>Clean sheet</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p29.jpg" alt="Black and white photo in a field"><figcaption>Shakespeare would have loved her</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p15.jpg" alt="Aleena beside a tree wrapped in fairy lights"><figcaption>Lights, no camera, action</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p20.jpg" alt="Mirror selfie by a door"><figcaption>Pre‑match</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p27.jpg" alt="Aleena looking at a foggy forest"><figcaption>Fog in the hills</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p05.jpg" alt="Aleena laughing at night"><figcaption>Caught laughing</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p21.jpg" alt="Aleena in embroidered black outfit"><figcaption>Home kit, formal edition</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p31.jpg" alt="Collage of Aleena in blue"><figcaption>Blue card collage</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p19.jpg" alt="Aleena looking back over her shoulder"><figcaption>Over the shoulder</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p30.jpg" alt="Aleena in a garden"><figcaption>Golden hour</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p26.jpg" alt="Aleena at night near a tree"><figcaption>Night session</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p11.jpg" alt="Black and white hillside"><figcaption>Hillside, monochrome</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p00.jpg" alt="Aleena with a friend"><figcaption>Peace signs only</figcaption></figure>
-      <figure><img loading="lazy" src="assets/photos/p17.jpg" alt="Friends walking at night"><figcaption>Night walk crew</figcaption></figure>
+      <figure><img loading="lazy" width="1056" height="1400" src="assets/photos/p16.jpg" alt="Aleena in the Madrid away jersey on a rooftop"><figcaption>Emirates, fly better</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p24.jpg" alt="Aleena picking Hot Wheels cars"><figcaption>Scouting the next McLaren</figcaption></figure>
+      <figure><img loading="lazy" width="1400" height="1400" src="assets/photos/p10.jpg" alt="Aleena by pink flowers"><figcaption>Soft launch</figcaption></figure>
+      <figure><img loading="lazy" width="641" height="1400" src="assets/photos/p08.jpg" alt="Aleena on a banana phone"><figcaption>Team radio</figcaption></figure>
+      <figure><img loading="lazy" width="1050" height="1400" src="assets/photos/p06.jpg" alt="Aleena with a drink and ice cream"><figcaption>Refuelling</figcaption></figure>
+      <figure><img loading="lazy" width="1050" height="1400" src="assets/photos/p23.jpg" alt="Mirror selfie in the Madrid jersey"><figcaption>Matchday fit check</figcaption></figure>
+      <figure><img loading="lazy" width="933" height="1400" src="assets/photos/p07.jpg" alt="Aleena with balloons and flowers"><figcaption>Balloons season</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p12.jpg" alt="Aleena in the mountains hiding her face"><figcaption>Camera shy, allegedly</figcaption></figure>
+      <figure><img loading="lazy" width="1400" height="1400" src="assets/photos/p13.jpg" alt="Aleena in black traditional wear"><figcaption>Main character</figcaption></figure>
+      <figure><img loading="lazy" width="1399" height="1400" src="assets/photos/p14.jpg" alt="Aleena at a dinner table with flowers"><figcaption>Dinner, flowers, drama</figcaption></figure>
+      <figure><img loading="lazy" width="1050" height="1400" src="assets/photos/p03.jpg" alt="Aleena with a friend at a restaurant"><figcaption>Partners in crime</figcaption></figure>
+      <figure><img loading="lazy" width="1400" height="788" src="assets/photos/p04.jpg" alt="Group selfie in the woods"><figcaption>The full squad</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p18.jpg" alt="Aleena sitting in a pine forest"><figcaption>Pine forest, headphones on</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p22.jpg" alt="Aleena with friends in a toy shop"><figcaption>Toy shop takeover</figcaption></figure>
+      <figure><img loading="lazy" width="720" height="720" src="assets/photos/p28.jpg" alt="Mirror selfie in white"><figcaption>Clean sheet</figcaption></figure>
+      <figure><img loading="lazy" width="1242" height="1242" src="assets/photos/p29.jpg" alt="Black and white photo in a field"><figcaption>Shakespeare would have loved her</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p15.jpg" alt="Aleena beside a tree wrapped in fairy lights"><figcaption>Lights, no camera, action</figcaption></figure>
+      <figure><img loading="lazy" width="955" height="1193" src="assets/photos/p20.jpg" alt="Mirror selfie by a door"><figcaption>Pre‑match</figcaption></figure>
+      <figure><img loading="lazy" width="1120" height="1400" src="assets/photos/p27.jpg" alt="Aleena looking at a foggy forest"><figcaption>Fog in the hills</figcaption></figure>
+      <figure><img loading="lazy" width="1050" height="1400" src="assets/photos/p05.jpg" alt="Aleena laughing at night"><figcaption>Caught laughing</figcaption></figure>
+      <figure><img loading="lazy" width="1400" height="1400" src="assets/photos/p21.jpg" alt="Aleena in embroidered black outfit"><figcaption>Home kit, formal edition</figcaption></figure>
+      <figure><img loading="lazy" width="1400" height="1400" src="assets/photos/p31.jpg" alt="Collage of Aleena in blue"><figcaption>Blue card collage</figcaption></figure>
+      <figure><img loading="lazy" width="1080" height="1080" src="assets/photos/p19.jpg" alt="Aleena looking back over her shoulder"><figcaption>Over the shoulder</figcaption></figure>
+      <figure><img loading="lazy" width="1044" height="1293" src="assets/photos/p30.jpg" alt="Aleena in a garden"><figcaption>Golden hour</figcaption></figure>
+      <figure><img loading="lazy" width="1130" height="1400" src="assets/photos/p26.jpg" alt="Aleena at night near a tree"><figcaption>Night session</figcaption></figure>
+      <figure><img loading="lazy" width="1050" height="1400" src="assets/photos/p11.jpg" alt="Black and white hillside"><figcaption>Hillside, monochrome</figcaption></figure>
+      <figure><img loading="lazy" width="787" height="1400" src="assets/photos/p00.jpg" alt="Aleena with a friend"><figcaption>Peace signs only</figcaption></figure>
+      <figure><img loading="lazy" width="1119" height="1400" src="assets/photos/p17.jpg" alt="Friends walking at night"><figcaption>Night walk crew</figcaption></figure>
     </div>
 
     <div class="reels">
@@ -325,6 +404,19 @@
         <video playsinline preload="none" controls poster="assets/videos/v3.jpg" src="assets/videos/v3.mp4"></video>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ COUPONS ============ -->
+<section class="section section-coupons" id="coupons">
+  <div class="container">
+    <div class="section-head">
+      <img class="head-sticker" src="assets/stickers/hangry.png" alt="">
+      <p class="kicker">Birthday perks</p>
+      <h2>Coupons, valid today</h2>
+      <p class="lead">Tap to redeem, screenshot it, send it to whoever owes you. No refunds. No arguments. Especially no arguments.</p>
+    </div>
+    <div class="coupon-grid" id="couponGrid"></div>
   </div>
 </section>
 
@@ -364,6 +456,16 @@
   <p>Made with love, confetti and far too much papaya. Hala Madrid, and happy birthday Aleena.</p>
 </footer>
 
+<nav class="tabbar" id="tabbar" aria-label="Sections">
+  <a href="#top"><i>🎂</i><span>Home</span></a>
+  <a href="#penalty"><i>⚽</i><span>Penalty</span></a>
+  <a href="#race"><i>🏎️</i><span>Race</span></a>
+  <a href="#memes"><i>😂</i><span>Memes</span></a>
+  <a href="#gallery"><i>📸</i><span>Pics</span></a>
+  <a href="#letter"><i>💌</i><span>Letter</span></a>
+</nav>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button>
   <button class="lb-prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
@@ -372,7 +474,8 @@
   <p id="lbCap"></p>
 </div>
 
-<script src="js/main.js"></script>
-<script src="js/race.js"></script>
+<script src="js/main.js?v=4"></script>
+<script src="js/race.js?v=4"></script>
+<script src="js/fun.js?v=4"></script>
 </body>
 </html>

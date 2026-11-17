@@ -28,6 +28,8 @@
   let keys = { left: false, right: false, up: false, down: false, drs: false };
   let state = 'idle';
   let px, pxTarget, speed, dist, lap, pos, drsCharge, drsOn, drsT, hitT, traffic, pickups, t, spawnT, shake, best, finalPos, tilt, lightsOn, lightsT, pointerX, msgT;
+  let bananas = [], spinT = 0;
+  const buzz = p => { try { navigator.vibrate && navigator.vibrate(p); } catch (e) { } };
   best = +localStorage.getItem('aleena-gp-best') || 0;
   if (best) hudBest.textContent = 'P' + best;
 
@@ -51,13 +53,14 @@
     crash: ['"Contact. Mean mode activated."', '"That was not your fault, apparently."', '"Box box? No. Keep going, you are fine."', '"Eye-roll detected on the telemetry."'],
     cake: ['"Cake collected. DRS refilled. Priorities."', '"Someone left cake on the racing line. Legend."'],
     lando: ['"That was Lando. Oscar says yep."', '"Papaya on papaya. You win that one."'],
-    p: { 15: '"P15. Good pace, keep your head down."', 10: '"P10, Aleena. Points. Jude is watching."', 5: '"P5. Top five. Bernabéu would be loud right now."', 3: '"P3. That is a podium if you hold it."', 2: '"P2. One more. One more."', 1: '"THAT IS P1 ALEENA. P1. HAPPY BIRTHDAY."' }
+    banana: ['"You hit the banana phone. It was Florentino. He will call back."', '"Banana on track. Yes, that one was yours."'],
+    p: { 18: '"P18. You passed someone. Their feelings are hurt."', 15: '"P15. Good pace, keep your head down."', 12: '"P12. Lando is behind you now. Do not look back."', 7: '"P7. Florentino is watching. Act natural."', 10: '"P10, Aleena. Points. Jude is watching."', 5: '"P5. Top five. Bernabéu would be loud right now."', 3: '"P3. That is a podium if you hold it."', 2: '"P2. One more. One more."', 1: '"THAT IS P1 ALEENA. P1. HAPPY BIRTHDAY."' }
   };
   function say(m) { radio.textContent = m; msgT = 240; }
 
   function reset() {
     px = LANES[1]; pxTarget = null; speed = 0; dist = 0; lap = 1; pos = GRID; drsCharge = 1; drsOn = false; drsT = 0; hitT = 0;
-    traffic = []; pickups = []; t = 0; spawnT = 40; shake = 0; finalPos = 0; tilt = 0; lightsOn = 0; lightsT = 0; pointerX = null; msgT = 0;
+    traffic = []; pickups = []; bananas = []; spinT = 0; t = 0; spawnT = 40; shake = 0; finalPos = 0; tilt = 0; lightsOn = 0; lightsT = 0; pointerX = null; msgT = 0;
     hud();
   }
 
@@ -223,7 +226,7 @@
       }
       // collision
       if (hitT <= 0 && Math.abs(c.x - px) < CAR_W - 6 && Math.abs(c.y - PLAYER_Y) < CAR_H - 14) {
-        hitT = 75; shake = 18; beep(120, .35, 'sawtooth', .08);
+        hitT = 75; shake = 18; beep(120, .35, 'sawtooth', .08); buzz([90, 40, 90]);
         pos = Math.min(GRID, pos + 3);
         c.counted = false; c.v = speed + 1.5; // they get back past you
         say(RADIO.crash[(Math.random() * RADIO.crash.length) | 0]); hud();
@@ -235,11 +238,22 @@
       if (Math.abs(p.x - px) < 30 && Math.abs(p.y - PLAYER_Y) < 50) { p.got = true; drsCharge = 1; beep(1500, .15, 'triangle', .05); say(RADIO.cake[(Math.random() * 2) | 0]); }
     }
     pickups = pickups.filter(p => !p.got && p.y < H + 40);
+    // the banana phone
+    if (Math.random() < .0028 * speed / 12 && bananas.length < 1 && dist > 1200) bananas.push({ x: LANES[(Math.random() * 3) | 0], y: -60 });
+    for (const b of bananas) {
+      b.y += speed;
+      if (hitT <= 0 && spinT <= 0 && Math.abs(b.x - px) < 28 && Math.abs(b.y - PLAYER_Y) < 44) {
+        b.got = true; spinT = 42; speed *= .45; pos = Math.min(GRID, pos + 1); beep(300, .3, 'triangle', .06); buzz(140);
+        say(RADIO.banana[(Math.random() * RADIO.banana.length) | 0]); hud();
+      }
+    }
+    bananas = bananas.filter(b => !b.got && b.y < H + 40);
+    if (spinT > 0) spinT--;
     if (t % 6 === 0) hud();
   }
 
   function finish() {
-    state = 'done'; finalPos = pos;
+    state = 'done'; finalPos = pos; document.body.classList.remove('racing'); buzz([40, 60, 40, 60, 200]);
     if (!best || finalPos < best) { best = finalPos; localStorage.setItem('aleena-gp-best', best); hudBest.textContent = 'P' + best; }
     const A = window.ALEENA;
     if (finalPos === 1) {
@@ -265,8 +279,9 @@
     if (shake > 0) ctx.translate(rnd(-shake / 3, shake / 3), rnd(-shake / 3, shake / 3));
     drawTrack();
     for (const p of pickups) drawPickup(p);
+    for (const b of bananas) { ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(Math.sin(t * .15) * .3); ctx.font = '28px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('🍌', 0, 0); ctx.restore(); }
     for (const c of traffic) drawCar(c.x, c.y, c.team.c, c.team.a, c.team.n);
-    drawCar(px, PLAYER_Y, '#ff8000', '#111', '81', tilt, hitT > 0);
+    drawCar(px, PLAYER_Y, '#ff8000', '#111', '81', tilt + (spinT > 0 ? (42 - spinT) / 42 * Math.PI * 2 : 0), hitT > 0);
     // player glow
     ctx.restore();
     if (state === 'race' || state === 'done') drawHUDCanvas();
@@ -306,8 +321,14 @@
   startBtn.addEventListener('click', () => {
     reset(); overlay.classList.add('hidden'); state = 'lights';
     try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); AC.resume && AC.resume(); } catch (e) { }
-    cv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.body.classList.add('racing');
+    const stage = cv.closest('.race-stage');
+    if (matchMedia('(max-width:860px)').matches) stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else cv.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+
+  // bring the nav and tab bar back if she scrolls away mid-race
+  new IntersectionObserver(es => es.forEach(e => document.body.classList.toggle('racing', e.isIntersecting && (state === 'race' || state === 'lights'))), { threshold: .3 }).observe(cv.closest('.race-stage'));
 
   reset();
   // debug hook: step the simulation without waiting for animation frames

@@ -2,3 +2,4 @@ originals/
 .claude/
 Thumbs.db
 .DS_Store
+build/
