@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday Aleena</title>
+<meta name="description" content="A birthday site for Aleena: Real Madrid, Bellingham, McLaren, Piastri, stickers, and a race she has to win.">
+<link rel="icon" href="assets/stickers/ball-helmet.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ LIGHTS OUT INTRO ============ -->
+<div id="intro" class="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <p class="intro-kicker">Formation lap complete</p>
+    <div class="lights" id="lights">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="intro-text" id="introText">Starting grid: Aleena, P1</p>
+    <button class="btn btn-skip" id="skipIntro" type="button">Skip</button>
+  </div>
+</div>
+
+<canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><img src="assets/stickers/ball-helmet.png" alt=""><span>Aleena's Day</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#card">Driver card</a>
+    <a href="#jude">Jude</a>
+    <a href="#oscar">Oscar</a>
+    <a href="#race">Race</a>
+    <a href="#stickers">Stickers</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#letter">Letter</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="pitch-lines"></div>
+    <div class="glow glow-papaya"></div>
+    <div class="glow glow-gold"></div>
+  </div>
+  <img class="float-sticker fs-1" src="assets/stickers/jude.png" alt="Chibi Jude sticker" data-depth="0.04">
+  <img class="float-sticker fs-2" src="assets/stickers/oscar.png" alt="Chibi Oscar sticker" data-depth="0.06">
+  <img class="float-sticker fs-3" src="assets/stickers/car.png" alt="Papaya car with balloons" data-depth="0.03">
+  <img class="float-sticker fs-4" src="assets/stickers/cake.png" alt="Football pitch cake" data-depth="0.05">
+  <img class="float-sticker fs-5" src="assets/stickers/ball-helmet.png" alt="Ball and helmet" data-depth="0.07">
+
+  <div class="hero-content">
+    <p class="eyebrow"><span class="dot"></span> Lights out and away we go</p>
+    <h1 class="hero-title">
+      <span class="line">Happy</span>
+      <span class="line">Birthday</span>
+      <span class="line name">Aleena</span>
+    </h1>
+    <p class="hero-sub">Madridista. Papaya army. Owner of a very nice soul and a <em>slightly</em> dangerous eye‑roll.<br>Today the whole grid stops for you.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#race">Start the race</a>
+      <a class="btn btn-ghost" href="#letter">Read your letter</a>
+    </div>
+    <div class="hero-badges">
+      <span class="badge badge-white">RM · 5 · Bellingham</span>
+      <span class="badge badge-papaya">MCL · 81 · Piastri</span>
+      <span class="badge badge-gold">Birthday girl · P1</span>
+    </div>
+  </div>
+
+  <div class="hero-photo">
+    <div class="polaroid tilt-l">
+      <img src="assets/photos/p09.jpg" alt="Aleena in her Bellingham 5 jersey on a rooftop at night">
+      <span>the jersey, the skyline, the aura</span>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#card"><span></span></a>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>HALA MADRID</span><i>★</i><span>PAPAYA RULES</span><i>★</i><span>HEY JUDE</span><i>★</i><span>OSCAR P1</span><i>★</i><span>HAPPY BIRTHDAY ALEENA</span><i>★</i><span>GOOD GIRL (MOSTLY)</span><i>★</i><span>NICE SOUL, SHARP TONGUE</span><i>★</i>
+    <span>HALA MADRID</span><i>★</i><span>PAPAYA RULES</span><i>★</i><span>HEY JUDE</span><i>★</i><span>OSCAR P1</span><i>★</i><span>HAPPY BIRTHDAY ALEENA</span><i>★</i><span>GOOD GIRL (MOSTLY)</span><i>★</i><span>NICE SOUL, SHARP TONGUE</span><i>★</i>
+  </div>
+</div>
+
+<!-- ============ DRIVER CARD ============ -->
+<section class="section" id="card">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Official driver profile</p>
+      <h2>The Aleena card</h2>
+      <p class="lead">Scouted by Madrid, signed by McLaren, undroppable in our lives. Here are the numbers.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="fut-card reveal">
+        <div class="fut-top">
+          <div class="fut-rating"><strong>99</strong><span>OVR</span></div>
+          <div class="fut-pos">CAM / P1</div>
+          <img class="fut-sticker" src="assets/stickers/aleena-trophy.png" alt="Aleena lifting a trophy">
+        </div>
+        <div class="fut-name">ALEENA</div>
+        <div class="fut-stats">
+          <div><b>99</b><span>KINDNESS</span></div>
+          <div><b>97</b><span>LOYALTY</span></div>
+          <div><b>94</b><span>FOOTBALL IQ</span></div>
+          <div><b>91</b><span>RACECRAFT</span></div>
+          <div><b>88</b><span>SASS</span></div>
+          <div><b>73</b><span>MEAN MODE</span></div>
+        </div>
+        <div class="fut-foot">Real Madrid × McLaren · Birthday Edition</div>
+      </div>
+
+      <div class="traits">
+        <article class="trait reveal">
+          <img src="assets/stickers/kiss.png" alt="">
+          <h3>Nice soul</h3>
+          <p>The kind of person who remembers the small things, shows up when it matters, and makes everyone feel like they are in the front row.</p>
+        </article>
+        <article class="trait reveal">
+          <img src="assets/stickers/cake-girl.png" alt="">
+          <h3>Good girl</h3>
+          <p>Certified. Mostly. Will share her fries. Will not share her Bellingham jersey. Will absolutely cry at a Madrid comeback.</p>
+        </article>
+        <article class="trait reveal">
+          <img src="assets/stickers/grumpy.png" alt="">
+          <h3>Sometimes mean</h3>
+          <p>Mean Mode activates when: hungry, losing an argument, Madrid conceding, or someone saying Lando is better than Oscar. Side effects include eye‑rolls and brutally honest reviews.</p>
+        </article>
+        <article class="trait reveal">
+          <img src="assets/stickers/aleena-hug.png" alt="">
+          <h3>Football brain</h3>
+          <p>Can explain the offside rule to anyone, will argue a VAR decision for three days, and has a pre‑match ritual she will deny having.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="stat-bars reveal">
+      <div class="bar"><span>Chance she calls herself "a nice person" this week</span><div><i style="--v:97%"></i></div><b>97%</b></div>
+      <div class="bar"><span>Chance she is actually a nice person</span><div><i style="--v:100%"></i></div><b>100%</b></div>
+      <div class="bar"><span>Chance of mean mode before food arrives</span><div><i style="--v:82%"></i></div><b>82%</b></div>
+      <div class="bar"><span>Chance she forgives you anyway</span><div><i style="--v:99%"></i></div><b>99%</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JUDE ============ -->
+<section class="section section-jude" id="jude">
+  <div class="container split">
+    <div class="split-media reveal">
+      <div class="jersey-card jersey-white">
+        <div class="jersey-num">5</div>
+        <div class="jersey-name">BELLINGHAM</div>
+        <img src="assets/stickers/jude.png" alt="Chibi Jude Bellingham sticker">
+      </div>
+    </div>
+    <div class="split-text">
+      <p class="kicker">Real Madrid · No. 5</p>
+      <h2>Hey Jude</h2>
+      <p class="lead">Arms out wide, Bernabéu losing its mind, and Aleena somewhere on a sofa screaming louder than the stadium.</p>
+      <ul class="facts">
+        <li><b>The celebration</b> Arms spread, chin up. Aleena does it after winning arguments. Also after losing them.</li>
+        <li><b>The number</b> He took the 5 that Zidane wore. She took the jersey and never gave it back.</li>
+        <li><b>The vibe</b> Calm, classy, lethal in the final third. Three out of three for the birthday girl.</li>
+        <li><b>The rule</b> Nobody talks during a Madrid match. Not during the game, not during the replays, not during the post‑match interviews.</li>
+      </ul>
+      <div class="chips">
+        <span>Hala Madrid</span><span>Y nada más</span><span>Comeback kings</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OSCAR ============ -->
+<section class="section section-oscar" id="oscar">
+  <div class="container split split-rev">
+    <div class="split-media reveal">
+      <div class="jersey-card jersey-papaya">
+        <div class="jersey-num">81</div>
+        <div class="jersey-name">PIASTRI</div>
+        <img src="assets/stickers/oscar.png" alt="Chibi Oscar Piastri sticker">
+      </div>
+    </div>
+    <div class="split-text">
+      <p class="kicker">McLaren · No. 81</p>
+      <h2>Papaya, Oscar, P1</h2>
+      <p class="lead">Ice in his veins, zero drama on the radio, and a smile that only shows up after the chequered flag. Aleena's favourite kind of calm.</p>
+      <ul class="facts">
+        <li><b>The radio</b> "Yep." That is the whole message. Aleena, meanwhile, writes paragraphs.</li>
+        <li><b>The number</b> 81, because 8 and 1 were taken. She would have fought someone for the 8.</li>
+        <li><b>The vibe</b> Unbothered, precise, somehow faster every weekend. Her at 7am before coffee is the exact opposite, and we love both.</li>
+        <li><b>The rule</b> Papaya on race day. No exceptions, no negotiations, no "but it clashes".</li>
+      </ul>
+      <div class="chips chips-papaya">
+        <span>Papaya army</span><span>Lights out</span><span>Box box box</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RACE ============ -->
+<section class="section section-race" id="race">
+  <div class="container">
+    <div class="section-head light">
+      <p class="kicker">Aleena Grand Prix</p>
+      <h2>Your race, your car, your P1</h2>
+      <p class="lead">Three laps. Papaya car. Nineteen cars ahead of you on the grid. Overtake everyone, avoid the chaos, and hold the DRS for the straights. Mean mode is allowed here.</p>
+    </div>
+
+    <div class="race-wrap">
+      <div class="race-stage">
+        <canvas id="raceCanvas" width="420" height="680"></canvas>
+        <div class="race-overlay" id="raceOverlay">
+          <img src="assets/stickers/car.png" alt="" class="race-overlay-img">
+          <h3 id="overlayTitle">Aleena Grand Prix</h3>
+          <p id="overlayText">Beat the grid in 3 laps. Every overtake is a place gained, every crash costs three. Finish P1 and the podium is yours.</p>
+          <button class="btn btn-primary" id="raceStart" type="button">Lights out</button>
+          <div class="controls-hint">
+            <span><kbd>◀</kbd><kbd>▶</kbd> or <kbd>A</kbd><kbd>D</kbd> steer</span>
+            <span><kbd>▲</kbd> push · <kbd>▼</kbd> lift</span>
+            <span><kbd>Space</kbd> DRS boost</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="race-side">
+        <div class="hud">
+          <div class="hud-item"><span>Position</span><b id="hudPos">P20</b></div>
+          <div class="hud-item"><span>Lap</span><b id="hudLap">0 / 3</b></div>
+          <div class="hud-item"><span>Speed</span><b id="hudSpeed">0 km/h</b></div>
+          <div class="hud-item"><span>Best</span><b id="hudBest">—</b></div>
+        </div>
+        <div class="drs-meter"><span>DRS</span><div><i id="drsFill"></i></div></div>
+        <p class="radio" id="radio">"Radio check, Aleena. Box when you are ready."</p>
+        <div class="touch-controls" id="touchControls">
+          <button type="button" data-k="left" aria-label="Left">◀</button>
+          <button type="button" data-k="drs" aria-label="DRS">DRS</button>
+          <button type="button" data-k="right" aria-label="Right">▶</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STICKERS ============ -->
+<section class="section" id="stickers">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Made for you</p>
+      <h2>The Aleena sticker pack</h2>
+      <p class="lead">Twelve stickers, both teams, both jerseys, one birthday girl. Tap any of them to save it for WhatsApp.</p>
+    </div>
+    <div class="sticker-grid" id="stickerGrid">
+      <a class="sticker" href="assets/stickers/aleena-trophy.png" download="aleena-trophy.png"><img src="assets/stickers/aleena-trophy.png" alt="Aleena in papaya lifting a trophy"><span>Champion</span></a>
+      <a class="sticker" href="assets/stickers/aleena-hug.png" download="aleena-hug.png"><img src="assets/stickers/aleena-hug.png" alt="Aleena hugging a football in a number 5 jersey"><span>Hala Madrid</span></a>
+      <a class="sticker" href="assets/stickers/grumpy.png" download="aleena-grumpy.png"><img src="assets/stickers/grumpy.png" alt="Grumpy Aleena with arms crossed"><span>Mean mode</span></a>
+      <a class="sticker" href="assets/stickers/kiss.png" download="aleena-kiss.png"><img src="assets/stickers/kiss.png" alt="Aleena in a papaya jacket blowing a kiss"><span>Forgiven</span></a>
+      <a class="sticker" href="assets/stickers/cake-girl.png" download="aleena-cake.png"><img src="assets/stickers/cake-girl.png" alt="Aleena with cake and headphones"><span>Birthday girl</span></a>
+      <a class="sticker" href="assets/stickers/jude.png" download="jude.png"><img src="assets/stickers/jude.png" alt="Chibi Jude celebrating"><span>Hey Jude</span></a>
+      <a class="sticker" href="assets/stickers/oscar.png" download="oscar.png"><img src="assets/stickers/oscar.png" alt="Chibi Oscar with helmet"><span>Yep.</span></a>
+      <a class="sticker" href="assets/stickers/duo.png" download="jude-oscar.png"><img src="assets/stickers/duo.png" alt="Jude and Oscar as best friends"><span>The boys</span></a>
+      <a class="sticker" href="assets/stickers/car.png" download="papaya-car.png"><img src="assets/stickers/car.png" alt="Papaya race car with balloons"><span>Party car</span></a>
+      <a class="sticker" href="assets/stickers/cake.png" download="pitch-cake.png"><img src="assets/stickers/cake.png" alt="Football pitch birthday cake"><span>The cake</span></a>
+      <a class="sticker" href="assets/stickers/trophy.png" download="happy-birthday-trophy.png"><img src="assets/stickers/trophy.png" alt="Happy birthday trophy"><span>Trophy</span></a>
+      <a class="sticker" href="assets/stickers/ball-helmet.png" download="ball-helmet.png"><img src="assets/stickers/ball-helmet.png" alt="Football and helmet in party hats"><span>Besties</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section section-gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Highlights reel</p>
+      <h2>Aleena, in pictures</h2>
+      <p class="lead">Mountains, mirrors, flowers, Hot Wheels aisles and far too many jerseys. Tap to open.</p>
+    </div>
+    <div class="masonry" id="masonry">
+      <figure><img loading="lazy" src="assets/photos/p16.jpg" alt="Aleena in the Madrid away jersey on a rooftop"><figcaption>Emirates, fly better</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p24.jpg" alt="Aleena picking Hot Wheels cars"><figcaption>Scouting the next McLaren</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p10.jpg" alt="Aleena by pink flowers"><figcaption>Soft launch</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p08.jpg" alt="Aleena on a banana phone"><figcaption>Team radio</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p06.jpg" alt="Aleena with a drink and ice cream"><figcaption>Refuelling</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p23.jpg" alt="Mirror selfie in the Madrid jersey"><figcaption>Matchday fit check</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p07.jpg" alt="Aleena with balloons and flowers"><figcaption>Balloons season</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p12.jpg" alt="Aleena in the mountains hiding her face"><figcaption>Camera shy, allegedly</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p13.jpg" alt="Aleena in black traditional wear"><figcaption>Main character</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p14.jpg" alt="Aleena at a dinner table with flowers"><figcaption>Dinner, flowers, drama</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p03.jpg" alt="Aleena with a friend at a restaurant"><figcaption>Partners in crime</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p04.jpg" alt="Group selfie in the woods"><figcaption>The full squad</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p18.jpg" alt="Aleena sitting in a pine forest"><figcaption>Pine forest, headphones on</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p22.jpg" alt="Aleena with friends in a toy shop"><figcaption>Toy shop takeover</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p28.jpg" alt="Mirror selfie in white"><figcaption>Clean sheet</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p29.jpg" alt="Black and white photo in a field"><figcaption>Shakespeare would have loved her</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p15.jpg" alt="Aleena beside a tree wrapped in fairy lights"><figcaption>Lights, no camera, action</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p20.jpg" alt="Mirror selfie by a door"><figcaption>Pre‑match</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p27.jpg" alt="Aleena looking at a foggy forest"><figcaption>Fog in the hills</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p05.jpg" alt="Aleena laughing at night"><figcaption>Caught laughing</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p21.jpg" alt="Aleena in embroidered black outfit"><figcaption>Home kit, formal edition</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p31.jpg" alt="Collage of Aleena in blue"><figcaption>Blue card collage</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p19.jpg" alt="Aleena looking back over her shoulder"><figcaption>Over the shoulder</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p30.jpg" alt="Aleena in a garden"><figcaption>Golden hour</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p26.jpg" alt="Aleena at night near a tree"><figcaption>Night session</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p11.jpg" alt="Black and white hillside"><figcaption>Hillside, monochrome</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p00.jpg" alt="Aleena with a friend"><figcaption>Peace signs only</figcaption></figure>
+      <figure><img loading="lazy" src="assets/photos/p17.jpg" alt="Friends walking at night"><figcaption>Night walk crew</figcaption></figure>
+    </div>
+
+    <div class="reels">
+      <h3>Short clips</h3>
+      <div class="reel-row">
+        <video playsinline preload="none" controls poster="assets/videos/v0.jpg" src="assets/videos/v0.mp4"></video>
+        <video playsinline preload="none" controls poster="assets/videos/v1.jpg" src="assets/videos/v1.mp4"></video>
+        <video playsinline preload="none" controls poster="assets/videos/v2.jpg" src="assets/videos/v2.mp4"></video>
+        <video playsinline preload="none" controls poster="assets/videos/v3.jpg" src="assets/videos/v3.mp4"></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LETTER ============ -->
+<section class="section section-letter" id="letter">
+  <div class="container narrow">
+    <div class="letter reveal">
+      <img class="letter-stamp" src="assets/stickers/trophy.png" alt="">
+      <p class="kicker">Team radio, final lap</p>
+      <h2>Dear Aleena,</h2>
+      <p>Happy birthday. Before anything else: you deserve the loudest, happiest, most ridiculous day, and this little website exists because a card would not have been enough.</p>
+      <p>You have one of the nicest souls we know. You notice when people are off. You show up. You hype everyone else up like they are walking out at the Bernabéu. And yes, you are a good girl. Mostly. The other ten percent, the mean mode, the eye‑rolls, the brutally honest opinions about our outfits and our football takes, is honestly our favourite part. Nobody keeps us humble like you do.</p>
+      <p>So here is the wish: a year where Madrid keep winning, where Oscar keeps collecting trophies, where every argument goes your way, and where you get even a fraction of the kindness you hand out to everyone else. Arms out wide, Jude style.</p>
+      <p>Lights out, birthday girl. Go win it.</p>
+      <p class="sign">With all our love,<br><span>your people</span></p>
+      <div class="letter-stickers">
+        <img src="assets/stickers/duo.png" alt="">
+        <img src="assets/stickers/aleena-hug.png" alt="">
+      </div>
+    </div>
+
+    <div class="wish-box reveal">
+      <h3>Make a wish</h3>
+      <p>Blow out the candles. Yes, really. Tap them.</p>
+      <div class="candles" id="candles">
+        <button type="button" aria-label="Candle"></button><button type="button" aria-label="Candle"></button><button type="button" aria-label="Candle"></button><button type="button" aria-label="Candle"></button><button type="button" aria-label="Candle"></button>
+      </div>
+      <p class="wish-result" id="wishResult"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <img src="assets/stickers/ball-helmet.png" alt="">
+  <p>Made with love, confetti and far too much papaya. Hala Madrid, and happy birthday Aleena.</p>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close">×</button>
+  <button class="lb-prev" id="lbPrev" type="button" aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" type="button" aria-label="Next">›</button>
+  <p id="lbCap"></p>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/race.js"></script>
+</body>
+</html>
