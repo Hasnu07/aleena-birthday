@@ -178,3 +178,20 @@ button{font-family:inherit}
 .masonry img,.meme img{height:auto}
 @media(max-width:600px){.meme-bar{gap:8px;flex-wrap:nowrap}.meme-bar .btn{padding:12px 15px;font-size:14px}.meme-bar span{min-width:64px;font-size:22px}}
 [hidden]{display:none!important}
+
+/* ---------- music ---------- */
+.nav-links{margin-left:auto}
+.music-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.12);display:grid;place-items:center;cursor:pointer;flex:none;margin-left:18px;position:relative;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:transform .15s,background .3s}
+.music-btn:active{transform:scale(.9)}
+.nav.solid .music-btn{background:var(--navy);border-color:var(--navy)}
+.eq{display:flex;align-items:flex-end;gap:3px;height:16px}
+.eq i{width:3px;height:5px;background:#fff;border-radius:2px}
+body.music-on .eq i{background:var(--papaya-2);animation:eq .6s ease-in-out infinite alternate}
+body.music-on .eq i:nth-child(2){animation-delay:-.25s}
+body.music-on .eq i:nth-child(3){animation-delay:-.45s}
+@keyframes eq{from{height:4px}to{height:16px}}
+.music-btn:after{content:"";position:absolute;width:26px;height:2px;background:#ff5a5a;transform:rotate(-45deg);border-radius:2px}
+body.music-on .music-btn:after{display:none}
+.intro-go{margin-top:22px;font-size:18px;padding:18px 40px;animation:goPulse 1.3s ease-in-out infinite}
+.intro-go.gone{display:none}
+@keyframes goPulse{50%{transform:scale(1.06);box-shadow:0 12px 44px rgba(255,128,0,.6)}}

@@ -45,14 +45,19 @@
     if (!reduced) { burst(220, innerWidth / 2, innerHeight * 0.4, 1.3); setTimeout(() => rain(140), 300); }
     setTimeout(() => { intro.style.display = 'none'; }, 900);
   }
-  $('#skipIntro').addEventListener('click', endIntro);
-  if (reduced) endIntro();
-  else {
+  // the intro waits for one tap so the browser lets the music play
+  const M = () => window.MUSIC || { unlock() { }, start() { }, beep() { } };
+  const go = $('#introGo');
+  $('#skipIntro').addEventListener('click', () => { M().start(); endIntro(); });
+  function runLights() {
     const lines = ['Starting grid: Aleena, P1', 'Jude in the midfield', 'Oscar on the front row', 'Engines on', 'Lights out and away we go'];
-    lights.forEach((l, i) => setTimeout(() => { l.classList.add('on'); introText.textContent = lines[i]; }, 700 + i * 650));
-    setTimeout(() => { lights.forEach(l => l.classList.remove('on')); introText.textContent = 'HAPPY BIRTHDAY ALEENA'; }, 700 + 5 * 650 + 500);
-    setTimeout(endIntro, 700 + 5 * 650 + 1700);
+    lights.forEach((l, i) => setTimeout(() => { if (introDone) return; l.classList.add('on'); introText.textContent = lines[i]; M().beep(440, .14); }, 250 + i * 650));
+    setTimeout(() => { if (introDone) return; lights.forEach(l => l.classList.remove('on')); introText.textContent = 'HAPPY BIRTHDAY ALEENA'; M().beep(880, .45); M().start(.55); }, 250 + 5 * 650 + 500);
+    setTimeout(endIntro, 250 + 5 * 650 + 2000);
   }
+  if (reduced) endIntro();
+  else if (go) go.addEventListener('click', () => { go.classList.add('gone'); M().unlock(); runLights(); }, { once: true });
+  else runLights();
 
   /* ---------- nav ---------- */
   const nav = $('#nav');

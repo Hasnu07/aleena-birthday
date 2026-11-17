@@ -27,6 +27,7 @@
     const close = () => { if (gone) return; gone = true; el.classList.remove('show'); setTimeout(() => { el.remove(); nextToast(); }, 450); };
     el.addEventListener('click', close); setTimeout(close, 4600);
   }
+  if (window.ALEENA) window.ALEENA.toast = toast;
   const sectionToasts = {
     card: ['🔋', 'Mean Mode', 'Battery at 100%. Fully charged for the birthday.'],
     translate: ['💬', 'Group chat', 'Aleena is typing a paragraph…'],
