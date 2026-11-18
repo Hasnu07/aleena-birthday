@@ -141,10 +141,12 @@
   });
 
   /* ---------- meme archive ---------- */
-  const rail = $('#memeRail'), N = 14;
+  const rail = $('#memeRail'), N = 20;
   if (rail) {
     const order = [...Array(N).keys()];
-    const HEIGHTS = [1308, 1308, 1308, 1350, 1387, 1350, 1387, 1350, 1387, 1308, 1350, 1387, 1387, 1308];
+    const HEIGHTS = [1308, 1308, 1308, 1350, 1387, 1350, 1387, 1350, 1387, 1308, 1350, 1387, 1387, 1308, 1387, 1387, 1387, 1308, 1387, 1387];
+    // lead with the superhero ones, then mix the rest
+    [14, 0, 15, 1, 16, 2, 19, 3, 17, 4, 18, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((v, i) => order[i] = v);
     const memes = order.map(i => {
       const b = document.createElement('button'); b.className = 'meme'; b.type = 'button';
       const img = document.createElement('img'); img.loading = 'lazy'; img.alt = 'Aleena meme ' + (i + 1);
